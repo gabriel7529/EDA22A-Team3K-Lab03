@@ -18,9 +18,11 @@
             response => response.json()
         ).then(
             data => {
+                
                 document.querySelector("#lista").innerHTML = data.text
             }
         )
+        document.getElementById("titulos").innerHTML =  "La lista es:";
     }
     </script>
 </head>  
@@ -31,7 +33,8 @@
 	<nav>
 	  <button onclick="mostrar_Lista()">Lista</button>
     </nav>
-    <section>      
+    <section>
+        <h3 id="titulos"></h3>      
         <article id="lista">
         </article>      
     </section>
