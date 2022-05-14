@@ -11,7 +11,18 @@
 	<!--<style></style>-->
 	<!--<script src="https://code.jquery.com/jquery-3.5.0.js"></script>-->
 	<!--<script src="script.js"></script>-->
-	<!--<script></script>-->
+	<script>
+    function mostrar_Lista() {
+        const url = 'http://localhost:3000/lista'
+        fetch(url).then(
+            response => response.json()
+        ).then(
+            data => {
+                document.querySelector("#lista").innerHTML = data.text
+            }
+        )
+    }
+    </script>
 </head>  
 <body>    
     <header>
@@ -21,7 +32,7 @@
 	  <button onclick="mostrar_Lista()">Lista</button>
     </nav>
     <section>      
-        <article>
+        <article id="lista">
         </article>      
     </section>
     <aside>
