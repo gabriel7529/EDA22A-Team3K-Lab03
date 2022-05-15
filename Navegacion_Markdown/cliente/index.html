@@ -13,16 +13,14 @@
 	<!--<script src="script.js"></script>-->
 	<script>
     function mostrar_Lista() {
-        const button = document.querySelector("#articulos");
-        button.disabled = true;
+        const botonV = '<button id="articulos" onclick="mostrarContenido()">Vizualizar</button>';
+        const formV = '<form><h4>Escriba el archivo que desée ver:</h4><input type="text" name="titulo"><br></form>';
         const url = 'http://localhost:3000/lista'
         fetch(url).then(
             response => response.json()
         ).then(
             data => {
-                const l = Array.isArray(data);
-                console.log(l)
-                document.querySelector("#lista").innerHTML = data.text
+                document.querySelector("#lista").innerHTML = data.text + formV + botonV
             }
         )
         document.getElementById("titulos").innerHTML =  "La lista es:";
@@ -39,7 +37,7 @@
     <section>
         <h3 id="titulos"></h3>      
         <article id="lista">
-            <button id="articulos" onclick="mostrarContenido()"></button>
+            
         </article>      
     </section>
     <aside>
