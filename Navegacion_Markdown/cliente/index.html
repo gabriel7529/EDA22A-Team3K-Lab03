@@ -13,12 +13,15 @@
 	<!--<script src="script.js"></script>-->
 	<script>
     function mostrar_Lista() {
+        const button = document.querySelector("#articulos");
+        button.disabled = true;
         const url = 'http://localhost:3000/lista'
         fetch(url).then(
             response => response.json()
         ).then(
             data => {
-                
+                const l = Array.isArray(data);
+                console.log(l)
                 document.querySelector("#lista").innerHTML = data.text
             }
         )
@@ -36,6 +39,7 @@
     <section>
         <h3 id="titulos"></h3>      
         <article id="lista">
+            <button id="articulos" onclick="mostrarContenido()"></button>
         </article>      
     </section>
     <aside>

@@ -22,7 +22,7 @@ app.get('/lista', (request, response) => {
 	}
 	const f = Array.isArray(data)
 	response.json({
-	  text: data.toString().replace(/.txt(,)*/g,'<br>')
+	  text: data.toString().replace(/.md(,)*/g,'<br>')
 	})
       })
 
