@@ -2,20 +2,21 @@ const cors = require('cors')
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
-const bp = require('body-parser')
+const bodyParser = require('body-parser');
+const { Router } = require('express');
+const { route } = require('express/lib/application');
 const app = express()
 
 app.use(cors())
-app.use(express.static('cliente'))
+app.use(express.static('pub'))
 app.listen(3000, () => {
     console.log("Escuchando en: http://localhost:3000")
 });
 
-app.use(express.static('pub'))
-app.use(bp.json())
-app.use(bp.urlencoded({
-    extended: true
+app.use(bodyParser.urlencoded({
+    extended: false
 }))
+app.use(bodyParser.json())
 
 app.get('/lista', (request, response) => {
     fs.readdir(path.resolve(__dirname,'./priv'),'utf8', 
@@ -33,22 +34,8 @@ app.get('/lista', (request, response) => {
       })
 
 })
-app.get('/BuscarTitulos', (req, res) => {
-	let name = req.query.titulo
-	console.log(name)
-	fs.readFile(path.resolve(__dirname, 'priv/'+ name + '.md'), 'utf8',
-        (err, data) => {
-            if (err) {
-                console.error(err)
-                res.status(500).json({
-                    error: 'message'
-                })
-                return
-            }
-            res.json({
-                text: data.replace(/\n/g, '<br>')
-            })
-        })
-})
-
-
+app.post('/Buscar', (req, res) => {
+  let dataString =req.body.titulo;
+  console.log(dataString)
+  res.end(dataString)
+})	
