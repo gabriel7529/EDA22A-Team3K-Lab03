@@ -52,6 +52,25 @@
         document.getElementById("Visualizar2").innerHTML =  nombre + texto + boton;
 
     }
+    function nombreArchivo(){
+        let nombreA = document.getElementById("nombre").value;
+        let title = {
+            titulo: nombreA
+        } 
+        const url = 'http://localhost:3000/nombre'
+        console.log(title);
+        fetch(url,{
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({ 'titulo': nombreA }),
+            headers: { 'Content-Type': 'application/json' }, 
+        }).then(
+            res => res.json()
+        ).then(
+            data => {
+            }
+        )
+    }
   </script>
 </head>  
 <body>    
