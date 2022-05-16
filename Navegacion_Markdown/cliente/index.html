@@ -34,12 +34,14 @@
         console.log(title);
         fetch(url,{
             method: 'POST',
-            body: title
+            mode: 'cors',
+            body: JSON.stringify({ 'titulo': nombre }),
+            headers: { 'Content-Type': 'application/json' }, 
         }).then(
             res => res.json()
         ).then(
             data => {
-                document.querySelector("#Visualizar").innerHTML = data.text
+                document.querySelector("#Visualizar").innerHTML ='<h3> Visualización</h3><br>' + data.text
             }
         )
     }

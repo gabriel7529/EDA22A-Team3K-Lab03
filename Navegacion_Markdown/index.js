@@ -3,8 +3,6 @@ const fs = require('fs')
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser');
-const { Router } = require('express');
-const { route } = require('express/lib/application');
 const app = express()
 
 app.use(cors())
@@ -14,7 +12,7 @@ app.listen(3000, () => {
 });
 
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }))
 app.use(bodyParser.json())
 
@@ -37,5 +35,17 @@ app.get('/lista', (request, response) => {
 app.post('/Buscar', (req, res) => {
   let dataString =req.body.titulo;
   console.log(dataString)
-  res.end(dataString)
+  fs.readFile(path.resolve(__dirname, 'priv/' + dataString + ".md"), 'utf8',
+        (err, data) => {
+            if (err) {
+                console.error(err)
+                response.status(500).json({
+                    error: 'message'
+                })
+                return
+            }
+            res.json({
+                text: data.replace(/\n/g, '<br>')
+            })
+        })
 })	
