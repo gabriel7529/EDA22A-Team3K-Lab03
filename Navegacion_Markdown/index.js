@@ -48,4 +48,8 @@ app.post('/Buscar', (req, res) => {
                 text: data.replace(/\n/g, '<br>')
             })
         })
-})	
+})
+app.post('/nombre', (req,res) => {
+  let archivo = req.body.titulo;
+  console.log(archivo)
+})
