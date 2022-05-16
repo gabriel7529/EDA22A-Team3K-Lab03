@@ -45,14 +45,20 @@
             }
         )
     }
-    </script>
+    function nuevoMark(){
+        let nombre = '<label>Nombre del archivo: </label><br><input type="text" id="nombre"><br>';
+        let texto = '<label>Texto en Markdown: </label><br><input type="text" id="texto"><br>';
+        document.getElementById("Visualizar2").innerHTML =  nombre + texto;
+
+    }
+  </script>
 </head>  
 <body>    
     <header>
-      <h1>Archivos de Markdown</h1>
+        <h1>Archivos de Markdown</h1>
     </header>
-	<nav>
-	  <button onclick="mostrar_Lista()">Lista</button>
+    <nav>
+        <button onclick="mostrar_Lista()">Lista</button>
     </nav>
     <section>
         <h3 id="titulos"></h3>      
@@ -60,6 +66,11 @@
         </article>      
     </section>
     <section id="Visualizar">
+    </section>
+    <section>
+        <button onclick="nuevoMark()">Nuevo</button>
+        <article id="Visualizar2">
+        </article>
     </section>
     <aside>
     </aside>
