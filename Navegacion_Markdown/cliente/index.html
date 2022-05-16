@@ -48,7 +48,8 @@
     function nuevoMark(){
         let nombre = '<label>Nombre del archivo: </label><br><input type="text" id="nombre"><br>';
         let texto = '<label>Texto en Markdown: </label><br><input type="text" id="texto"><br>';
-        document.getElementById("Visualizar2").innerHTML =  nombre + texto;
+        let boton = '<button onclick="nuevoMark()"></button>'
+        document.getElementById("Visualizar2").innerHTML =  nombre + texto + boton;
 
     }
   </script>
