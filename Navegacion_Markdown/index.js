@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 const app = express()
 
 app.use(cors())
-app.use(express.static('pub'))
+app.use(express.static('cliente'))
 app.listen(3000, () => {
     console.log("Escuchando en: http://localhost:3000")
 });
