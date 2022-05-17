@@ -57,3 +57,4 @@ app.post('/texto', (req,res) => {
   let texto = req.body.titulo;
   console.log(texto)
 })
+console.log(archivo+" "+texto)
