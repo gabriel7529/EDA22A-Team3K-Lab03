@@ -38,7 +38,23 @@
   <tr><th>SOLUCIÓN Y RESULTADOS</th></tr>
  </theader>
  <tbody>
-  <tr><td>I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS:<br>...</td></tr>
+     <tr><td>I. SOLUCIÓN DE EJERCICIOS/PROBLEMAS:<br><p>Se pone imagen:</p>
+      <img src="./img/Lista.png" alt="Lista">
+       <p> Aquí se crea el app.get que lée un directorio para luego sacar una data y esta convertirlo a string y luego usar expresiones regulares para sacarle el ".md" y la ",".</p>
+         <p>Por consiguiente se muestra la función mostrarContenido()</p>
+         <img src="./img/POST.png">
+         <p> En esta función se uso un fecth post con el contenido en JSON, pero envia el dato como string y no como objeto, también se aplica el cors para acceder a los datos</p>
+         <br>
+         <p> En el servidor se coloca:</p>
+         <img src="./img/BuscarArchivo.png">
+         <p>Se crea un app.post, que recibe dicho contenido anterior para almcenarlo en una variable y concaterla para el readFile y busque el archivo "md" y enviar el contenido como respuesta al cliente.</p>
+         <p>Para la creación del archivo se uso el siguiente código: </p>
+         <img = src="./img/CrearArchivo_1.jpeg">
+         <p>Aquí se crea una función nuevoMark, para crear en una sección donde introducir los datos para crear el markdown y luego la función nuevoArchivo(), con doble post que envia por partes el titulo y el contenido del nuevo Markdown.</p>
+         <p>Por lado del servidor</p>
+         <img src="./img/CrearArchivo_2.jpeg">
+         <p> Se usa también ambos post para reciber los datos en variables y crear el nuevo archivo "md" en el servidor; imprimiendo en la consola una imagen para confirmar la creación.</p>
+      </td></tr>
   <tr><td>II. SOLUCIÓN DEL CUESTIONARIO:<br><strong><em>1. En el Ejemplo "Hola Mundo" con NodeJS. ¿Qué pasó con la línea: "Content type ….."?</em></strong><br><p>En el primer ejemplo se puede ver que solo imprime en la consola y envia el mensaje al servidor, por cuál este no fue declarado un Content Type, puesto que el ejemplo aun requirio algun archivo en específico.</p><strong><em> 2. En los ejercicios. ¿En qué lugar debería estar el archivo poema.txt?</em></strong><p> Debería estar en la url indicada por el path.resolve, pero se recomienda que ese tipo de información se guardára en una carpeta privada, y esta carpeta debe encontrarse en el mismo lugar donde se encuentra el index.js que genera el servidor para su facil generación de rutas relativas.</p><strong><em> 3. ¿Entiende la expresión regular en el código y se da cuenta de para qué es útil?</em></strong><p>Si se entiende que la expresión regular busca el "\n" en el archivo para luego realizar una acción que determinamos; la importancia de este, es fundamental para trabajar con la información y el manejo de datos.</p>
    <strong><em>4. Note que la respuesta del servidor está en formato JSON, ¿Habrá alguna forma de verla directamente?</em></strong><p>Se puede visualizar esa respuesta en el formato JSON, a través de un console.log para ver la información en la consola; se puede evidenciar támbien que se trata de un formato JSON, si al momento de trabjar con este la página web no se recarga.</p>
 </td></tr>
