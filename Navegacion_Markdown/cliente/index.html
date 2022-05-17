@@ -57,12 +57,29 @@
         let title = {
             titulo: nombreA
         } 
+       let textoA = document.getElementById("texto").value;
+        let title2 = {
+            titulo: textoA
+        }
         const url = 'http://localhost:3000/nombre'
         console.log(title);
         fetch(url,{
             method: 'POST',
             mode: 'cors',
             body: JSON.stringify({ 'titulo': nombreA }),
+            headers: { 'Content-Type': 'application/json' }, 
+        }).then(
+            res => res.json()
+        ).then(
+            data => {
+            }
+        )
+        const url2 = 'http://localhost:3000/texto'
+        console.log(title2);
+        fetch(url2,{
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({ 'titulo': textoA }),
             headers: { 'Content-Type': 'application/json' }, 
         }).then(
             res => res.json()
