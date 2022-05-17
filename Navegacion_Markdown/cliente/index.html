@@ -47,12 +47,12 @@
     }
     function nuevoMark(){
         let nombre = '<label>Nombre del archivo: </label><br><input type="text" id="nombre"><br>';
-        let texto = '<label>Texto en Markdown: </label><br><input type="text" id="texto"><br>';
-        let boton = '<button onclick="nuevoMark()"></button>'
+        let texto = '<label>Texto en Markdown: </label><br><textarea id="texto" rows="10" cols="30"></textarea><br>';
+        let boton = '<button onclick="nuevoArchivo()"></button>'
         document.getElementById("Visualizar2").innerHTML =  nombre + texto + boton;
 
     }
-    function nombreArchivo(){
+    function nuevoArchivo(){
         let nombreA = document.getElementById("nombre").value;
         let title = {
             titulo: nombreA
