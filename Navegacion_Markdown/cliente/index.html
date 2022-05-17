@@ -45,14 +45,57 @@
             }
         )
     }
-    </script>
+    function nuevoMark(){
+        let nombre = '<label>Nombre del archivo: </label><br><input type="text" id="nombre"><br>';
+        let texto = '<label>Texto en Markdown: </label><br><textarea id="texto" rows="10" cols="30"></textarea><br>';
+        let boton = '<button onclick="nuevoArchivo()"></button>'
+        document.getElementById("Visualizar2").innerHTML =  nombre + texto + boton;
+
+    }
+    function nuevoArchivo(){
+        let nombreA = document.getElementById("nombre").value;
+        let title = {
+            titulo: nombreA
+        } 
+       let textoA = document.getElementById("texto").value;
+        let title2 = {
+            titulo: textoA
+        }
+        const url = 'http://localhost:3000/nombre'
+        console.log(title);
+        fetch(url,{
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({ 'titulo': nombreA }),
+            headers: { 'Content-Type': 'application/json' }, 
+        }).then(
+            res => res.json()
+        ).then(
+            data => {
+            }
+        )
+        const url2 = 'http://localhost:3000/texto'
+        console.log(title2);
+        fetch(url2,{
+            method: 'POST',
+            mode: 'cors',
+            body: JSON.stringify({ 'titulo': textoA }),
+            headers: { 'Content-Type': 'application/json' }, 
+        }).then(
+            res => res.json()
+        ).then(
+            data => {
+            }
+        )
+    }
+  </script>
 </head>  
 <body>    
     <header>
-      <h1>Archivos de Markdown</h1>
+        <h1>Archivos de Markdown</h1>
     </header>
-	<nav>
-	  <button onclick="mostrar_Lista()">Lista</button>
+    <nav>
+        <button onclick="mostrar_Lista()">Lista</button>
     </nav>
     <section>
         <h3 id="titulos"></h3>      
@@ -60,6 +103,11 @@
         </article>      
     </section>
     <section id="Visualizar">
+    </section>
+    <section>
+        <button onclick="nuevoMark()">Nuevo</button>
+        <article id="Visualizar2">
+        </article>
     </section>
     <aside>
     </aside>

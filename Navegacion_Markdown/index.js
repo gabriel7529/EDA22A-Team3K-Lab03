@@ -48,4 +48,18 @@ app.post('/Buscar', (req, res) => {
                 text: data.replace(/\n/g, '<br>')
             })
         })
-})	
+})
+app.post('/nombre', (req,res) => {
+  let archivo = req.body.titulo;
+  app.post('/texto', (req,res) => {
+    let texto = req.body.titulo;
+    console.log(archivo+" "+texto)
+    fs.appendFile("priv/"+archivo+".md",texto,(error)=>{
+      if(error){
+        throw error;
+      }
+      console.log("El archivo ha sido creado exitosamente");
+    });
+  })
+})
+
